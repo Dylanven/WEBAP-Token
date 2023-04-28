@@ -12,7 +12,8 @@ using System.Net;
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
-using Prototype.Controllers;
+using projetAPI2.Methode;
+
 
 namespace projetAPI2.Controllers
 {
@@ -139,7 +140,7 @@ namespace projetAPI2.Controllers
             }
             // Check if password is correct
             Debug.WriteLine("________________________________________" + '\n' + user.PasswordHash + "      " + log.Password.GetHashCode().ToString());
-            if (user.PasswordHash != log.Password.GetHashCode().ToString())
+            if (user.PasswordHash != HashPasword.hashPasword(log.Password))
             {
                 return Unauthorized("donnée incorecte");
             }

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using projetAPI2.Models;
+using projetAPI2.DTO;
+using projetAPI2.Convert;
 
 namespace projetAPI2.Controllers
 {
@@ -88,17 +90,30 @@ namespace projetAPI2.Controllers
         // POST: api/Categories
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        public async Task<ActionResult<Category>> PostCategory(Categorie category)
         {
           if (_context.Categories == null)
           {
               return Problem("Entity set 'PrototypeContext.Categories'  is null.");
           }
-            _context.Categories.Add(category);
+
+            Category cat = ConvertCategory.ConvertCategories(category);
+            var Name = await _context.Categories.FirstOrDefaultAsync(c => c.CatName == cat.CatName);
+
+            if (Name != null)
+            {
+                return BadRequest("Category already exists");
+            }
+
+
+
+            _context.Categories.Add(cat);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.IdCategory }, category);
+            return CreatedAtAction("GetCategory", new { id = cat.IdCategory }, cat);
         }
+
+     
 
         // DELETE: api/Categories/5
         [HttpDelete("{id}")]
