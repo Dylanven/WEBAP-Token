@@ -115,11 +115,10 @@ namespace projetAPI2.Controllers
                     throw;
                 }
             }
-            bool responseEmail = emailHelper.SendEmail(email, EmailConfirmationUrl);
-            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            var newRefreshToken = new string(Enumerable.Repeat(chars, 5).Select(s => s[random.Next(s.Length)]).ToArray());
 
-            await _userManager.SetAuthenticationTokenAsync(user, "MyApp", "RefreshToken", newRefreshToken);
+            /*send email with mail hepler*/
+            MailHelper mail = new MailHelper();
+            mail.SendEmail(test.Email, "Confirmation de votre compte", "Bonjour, \n\n Veuillez confirmer votre compte en cliquant sur le lien suivant : \n\n https://localhost:5001/api/AspNetUsers/ConfirmEmail/" + test.Id + "\n\n Cordialement, \n\n L'équipe de la plateforme de gestion de projet");
             return CreatedAtAction("GetAspNetUser", new { id = test.Id }, test);
                
         }
