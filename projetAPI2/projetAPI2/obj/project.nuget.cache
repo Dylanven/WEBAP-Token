@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QjPLokslpXQuD57r1A9+Bx9qHeLoWYajRGy8+5RdodHAiO+UDswCZT0aU21dZv1CpUTrgxYB6lOHFypVUoxNIQ==",
+  "dgSpecHash": "LBZnmsz6VQkDc6XMJDtoU24necAYQwRKjcAIcY7VSSV/wV1bbxEjxPJ7PoHeayWRiX4ZppUCiWNFLm2rU+Ga+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dylven\\source\\repos\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
+  "projectFilePath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dylven\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Dylven\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

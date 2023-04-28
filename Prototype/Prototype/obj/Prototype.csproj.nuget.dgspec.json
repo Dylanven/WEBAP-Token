@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dylven\\source\\repos\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj": {}
+    "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dylven\\source\\repos\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj": {
+    "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dylven\\source\\repos\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj",
+        "projectUniqueName": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj",
         "projectName": "Prototype",
-        "projectPath": "C:\\Users\\Dylven\\source\\repos\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj",
+        "projectPath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj",
         "packagesPath": "C:\\Users\\Dylven\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dylven\\source\\repos\\WEBAP-Token\\Prototype\\Prototype\\obj\\",
+        "outputPath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\Prototype\\Prototype\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dylven\\AppData\\Roaming\\NuGet\\NuGet.Config",

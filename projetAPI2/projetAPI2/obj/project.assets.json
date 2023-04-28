@@ -11113,11 +11113,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dylven\\source\\repos\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
+      "projectUniqueName": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
       "projectName": "projetAPI2",
-      "projectPath": "C:\\Users\\Dylven\\source\\repos\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
+      "projectPath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
       "packagesPath": "C:\\Users\\Dylven\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dylven\\source\\repos\\projetAPI2\\projetAPI2\\obj\\",
+      "outputPath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dylven\\AppData\\Roaming\\NuGet\\NuGet.Config",

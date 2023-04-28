@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UgVMd0hc/DgVGKIaqoy4sDg5kOXxtM6iz9U12YIhJnQJ8Y1N7Rk7iCTkVyhEDkImc1XeY10KJh7VT75lLtsKYA==",
+  "dgSpecHash": "zhjz8rNYEbLaI8Gihd7gC3V6/yBCWG89xLYQep13ahln+tH1v2izlE0/SsXqV43NbxnVJA+HPSEn60sQkiA0Nw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dylven\\source\\repos\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj",
+  "projectFilePath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\Prototype\\Prototype\\Prototype.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dylven\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Dylven\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
