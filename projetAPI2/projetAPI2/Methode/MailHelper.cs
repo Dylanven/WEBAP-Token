@@ -2,15 +2,15 @@
 using System.Text.Encodings.Web;
 
 
-namespace Prototype.Controllers
+namespace projetAPI2.Methode
 {
     public class MailHelper
-    { 
+    {
         public bool SendEmail(string userEmail, string returnUrl)
         {
-          /*  appProperties = new appProperties();
-            Console.WriteLine(appProperties.Email);
-            Console.WriteLine(appProperties.Password);*/
+            /*  appProperties = new appProperties();
+              Console.WriteLine(appProperties.Email);
+              Console.WriteLine(appProperties.Password);*/
             Console.WriteLine("Sending email to " + userEmail);
             Console.WriteLine("Return URL: " + returnUrl);
 
@@ -29,7 +29,7 @@ namespace Prototype.Controllers
             client.Host = "smtp.office365.com";
             client.Port = 587;
             client.EnableSsl = true;
-            
+
 
 
 

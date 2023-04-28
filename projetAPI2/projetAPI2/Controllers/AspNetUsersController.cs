@@ -26,16 +26,16 @@ namespace projetAPI2.Controllers
         {
             _context = context;
         }
- 
+
 
         // GET: api/AspNetUsers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AspNetUser>>> GetAspNetUsers()
         {
-          if (_context.AspNetUsers == null)
-          {
-              return NotFound();
-          }
+            if (_context.AspNetUsers == null)
+            {
+                return NotFound();
+            }
             return await _context.AspNetUsers.ToListAsync();
         }
 
@@ -43,10 +43,10 @@ namespace projetAPI2.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<AspNetUser>> GetAspNetUser(string id)
         {
-          if (_context.AspNetUsers == null)
-          {
-              return NotFound();
-          }
+            if (_context.AspNetUsers == null)
+            {
+                return NotFound();
+            }
             var aspNetUser = await _context.AspNetUsers.FindAsync(id);
 
             if (aspNetUser == null)
@@ -93,10 +93,10 @@ namespace projetAPI2.Controllers
         [HttpPost]
         public async Task<ActionResult<AspNetUser>> PostAspNetUser(NewUser newUser)
         {
-          if (_context.AspNetUsers == null)
-          {
-              return Problem("Entity set 'PrototypeContext.AspNetUsers'  is null.");
-          }
+            if (_context.AspNetUsers == null)
+            {
+                return Problem("Entity set 'PrototypeContext.AspNetUsers'  is null.");
+            }
             AspNetUser test = ConvertUser.ConvertToDTO(newUser);
 
 
@@ -113,12 +113,12 @@ namespace projetAPI2.Controllers
             }
 
             _context.AspNetUsers.Add(test);
-           
-                await _context.SaveChangesAsync();
-    
-            
+
+            await _context.SaveChangesAsync();
+
+
             return CreatedAtAction("GetAspNetUser", new { id = test.Id }, test);
-               
+
         }
         // POST: api/AspNetUsers LOGIN
 
@@ -132,13 +132,13 @@ namespace projetAPI2.Controllers
             }
             // Get user from database
             var user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == log.UserName);
-    
+
             if (user == null)
             {
                 return NotFound("utilisateur non trouvé");
             }
             // Check if password is correct
-            Debug.WriteLine("________________________________________" + '\n' + user.PasswordHash +"      "+ log.Password.GetHashCode().ToString());
+            Debug.WriteLine("________________________________________" + '\n' + user.PasswordHash + "      " + log.Password.GetHashCode().ToString());
             if (user.PasswordHash != log.Password.GetHashCode().ToString())
             {
                 return Unauthorized("donnée incorecte");
