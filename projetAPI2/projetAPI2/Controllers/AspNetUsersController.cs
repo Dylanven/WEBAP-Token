@@ -98,27 +98,25 @@ namespace projetAPI2.Controllers
               return Problem("Entity set 'PrototypeContext.AspNetUsers'  is null.");
           }
             AspNetUser test = ConvertUser.ConvertToDTO(newUser);
-            
-            _context.AspNetUsers.Add(test);
-            try
+
+
+            /*chek if Email existe into aspnetuser*/
+            var username = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == newUser.UserName);
+            var email = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.Email == newUser.Email);
+            if (username != null)
             {
-                await _context.SaveChangesAsync();
+                return Conflict("Username already exists");
             }
-            catch (DbUpdateException)
+            if (email != null)
             {
-                if (AspNetUserExists(test.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return Conflict("Email already exists");
             }
 
-            /*send email with mail hepler*/
-            MailHelper mail = new MailHelper();
-            mail.SendEmail(test.Email, "Confirmation de votre compte", "Bonjour, \n\n Veuillez confirmer votre compte en cliquant sur le lien suivant : \n\n https://localhost:5001/api/AspNetUsers/ConfirmEmail/" + test.Id + "\n\n Cordialement, \n\n L'équipe de la plateforme de gestion de projet");
+            _context.AspNetUsers.Add(test);
+           
+                await _context.SaveChangesAsync();
+    
+            
             return CreatedAtAction("GetAspNetUser", new { id = test.Id }, test);
                
         }
@@ -137,30 +135,30 @@ namespace projetAPI2.Controllers
     
             if (user == null)
             {
-                return NotFound();
+                return NotFound("utilisateur non trouvé");
             }
             // Check if password is correct
             Debug.WriteLine("________________________________________" + '\n' + user.PasswordHash +"      "+ log.Password.GetHashCode().ToString());
             if (user.PasswordHash != log.Password.GetHashCode().ToString())
             {
-                return Unauthorized("Confirme your mail");
+                return Unauthorized("donnée incorecte");
             }
             if (user.EmailConfirmed == false)
             {
-                return Unauthorized();
+                return Unauthorized("Confirme your mail");
             }
             return Ok();
         }
 
         // DELETE: api/AspNetUsers/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAspNetUser(string id)
+        public async Task<IActionResult> DeleteAspNetUser(string username)
         {
             if (_context.AspNetUsers == null)
             {
                 return NotFound();
             }
-            var aspNetUser = await _context.AspNetUsers.FindAsync(id);
+            var aspNetUser = await _context.AspNetUsers.FindAsync(username);
             if (aspNetUser == null)
             {
                 return NotFound();

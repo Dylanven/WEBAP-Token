@@ -11,7 +11,7 @@ public partial class AspNetUser
 
     public string? NormalizedUserName { get; set; }
 
-    public string? Email { get; set; }
+    public string Email { get; set; }
 
     public string? NormalizedEmail { get; set; }
 
