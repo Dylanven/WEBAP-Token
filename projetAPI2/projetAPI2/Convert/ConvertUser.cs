@@ -20,8 +20,8 @@ namespace projetAPI2.Convert
             Id = Guid.NewGuid().ToString(),
             Email = user.Email,
                UserName = user.UserName,
-                /* PasswordHash = HashPasword.hashPasword(user.Password),*/
-                PasswordHash = user.Password,
+               PasswordHash = HashPasword.hashPasword(user.Password),
+             
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = false,
                 TwoFactorEnabled = false
