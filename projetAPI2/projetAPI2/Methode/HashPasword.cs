@@ -13,7 +13,7 @@ namespace projetAPI2.Methode
                 // ComputeHash - returns byte array  
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
                 string hashedstring = BitConverter.ToString(bytes).Replace("-", "");
-                /*avoir la longeuer de hashedstring */
+            
 
 
 

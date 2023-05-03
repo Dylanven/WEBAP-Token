@@ -22,6 +22,7 @@ namespace projetAPI2.Controllers
     public class AspNetUsersController : ControllerBase
     {
         private readonly PrototypeContext _context;
+        private bool repsonse;
 
         public AspNetUsersController(PrototypeContext context)
         {
@@ -98,10 +99,10 @@ namespace projetAPI2.Controllers
             {
                 return Problem("Entity set 'PrototypeContext.AspNetUsers'  is null.");
             }
-            AspNetUser test = ConvertUser.ConvertToDTO(newUser);
+            
 
 
-            /*chek if Email existe into aspnetuser*/
+           
             var username = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == newUser.UserName);
             var email = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.Email == newUser.Email);
             if (username != null)
@@ -112,12 +113,12 @@ namespace projetAPI2.Controllers
             {
                 return Conflict("Email already exists");
             }
-
+            AspNetUser test = ConvertUser.ConvertToDTO(newUser);
             _context.AspNetUsers.Add(test);
 
             await _context.SaveChangesAsync();
-
-
+          
+            Debug.WriteLine("________________________________________" + '\n' + repsonse.ToString());
             return CreatedAtAction("GetAspNetUser", new { id = test.Id }, test);
 
         }

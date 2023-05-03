@@ -1,13 +1,19 @@
-﻿using System.Net.Mail;
+﻿using Microsoft.AspNetCore.Identity;
+using projetAPI2.DTO;
+using System.Net.Mail;
+using System.Security.Policy;
 using System.Text.Encodings.Web;
 
+using Microsoft.AspNetCore.WebUtilities;
 
 namespace projetAPI2.Methode
 {
     public class MailHelper
     {
-        public bool SendEmail(string userEmail, string returnUrl)
+        public static async Task<bool> SendEmailAsync(string userEmail,string returnUrl)
         {
+            
+                       
             /*  appProperties = new appProperties();
               Console.WriteLine(appProperties.Email);
               Console.WriteLine(appProperties.Password);*/
