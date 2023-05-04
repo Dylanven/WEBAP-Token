@@ -92,37 +92,28 @@ namespace projetAPI2.Controllers
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Categorie category)
         {
-            if (_context.Categories == null)
-            {
-                return Problem("Entity set 'PrototypeContext.Categories'  is null.");
-            }
+          if (_context.Categories == null)
+          {
+              return Problem("Entity set 'PrototypeContext.Categories'  is null.");
+          }
 
+            Category cat = ConvertCategory.ConvertCategories(category);
+            var Name = await _context.Categories.FirstOrDefaultAsync(c => c.CatName == cat.CatName);
 
-
-            //Category cat = ConvertCategory.ConvertCategories(category);
-            var newCategory = new Category { CatName = category.CatName };
-            //var Name = await _context.Categories.FirstOrDefaultAsync(c => c.CatName == cat.CatName);
-
-
-
-            if (_context.Categories.Any(c => c.CatName == newCategory.CatName))
+            if (Name != null)
             {
                 return BadRequest("Category already exists");
             }
 
 
 
-
-
-            _context.Categories.Add(newCategory);
+            _context.Categories.Add(cat);
             await _context.SaveChangesAsync();
 
-
-
-            return CreatedAtAction("GetCategory", new { id = newCategory.IdCategory }, newCategory);
+            return CreatedAtAction("GetCategory", new { id = cat.IdCategory }, cat);
         }
 
-
+     
 
         // DELETE: api/Categories/5
         [HttpDelete("{id}")]
