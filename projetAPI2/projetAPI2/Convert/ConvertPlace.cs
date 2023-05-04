@@ -11,7 +11,7 @@ namespace projetAPI2.Convert
             /*recuperer le CouName de country via l'id de country */
 
             
-            Place test = new Place
+            Place newPlace = new Place
             {
                 IdCountry = id,
                 PlaAddress = place.PlaAddress,
@@ -19,7 +19,7 @@ namespace projetAPI2.Convert
 
 
             };
-            return test;
+            return newPlace;
         }
     }
 }

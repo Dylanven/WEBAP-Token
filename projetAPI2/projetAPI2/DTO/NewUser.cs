@@ -7,6 +7,7 @@
         public string Password { get; set; }
         public string Password2 { get; set; }
 
+        
 
 
     }
