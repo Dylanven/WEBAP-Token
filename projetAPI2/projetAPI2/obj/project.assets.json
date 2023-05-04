@@ -11108,19 +11108,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PS21VZD\\.nuget\\packages\\": {}
+    "C:\\Users\\Dylven\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
+      "projectUniqueName": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
       "projectName": "projetAPI2",
-      "projectPath": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
-      "packagesPath": "C:\\Users\\PS21VZD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\obj\\",
+      "projectPath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
+      "packagesPath": "C:\\Users\\Dylven\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PS21VZD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dylven\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
