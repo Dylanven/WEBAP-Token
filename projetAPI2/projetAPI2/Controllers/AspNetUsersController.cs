@@ -99,20 +99,14 @@ namespace projetAPI2.Controllers
             {
                 return Problem("Entity set 'PrototypeContext.AspNetUsers'  is null.");
             }
-            
 
-
-           
-            var username = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == newUser.UserName);
-            var email = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.Email == newUser.Email);
-            if (username != null)
+            AspNetUser user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == newUser.UserName & u.Email == newUser.Email);
+          
+            if (user != null)
             {
                 return Conflict("Username already exists");
             }
-            if (email != null)
-            {
-                return Conflict("Email already exists");
-            }
+           
             AspNetUser test = ConvertUser.ConvertToDTO(newUser);
             _context.AspNetUsers.Add(test);
 
@@ -133,14 +127,19 @@ namespace projetAPI2.Controllers
                 return BadRequest("Invalid client request");
             }
             // Get user from database
-            var user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == log.UserName);
+            AspNetUser user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == log.UserName);
 
             if (user == null)
             {
-                return NotFound("utilisateur non trouvé");
+                 user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.Email == log.UserName);
+                if (user == null)
+                {
+                    return NotFound("donnée incorecte");
+                }
+                
             }
             // Check if password is correct
-            Debug.WriteLine("________________________________________" + '\n' + user.PasswordHash + "      " + log.Password.GetHashCode().ToString());
+            
             if (user.PasswordHash != HashPasword.hashPasword(log.Password))
             {
                 return Unauthorized("donnée incorecte");
@@ -165,7 +164,7 @@ namespace projetAPI2.Controllers
             {
                 return NotFound();
             }
-
+            /*CHECK TOKEN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
             _context.AspNetUsers.Remove(aspNetUser);
             await _context.SaveChangesAsync();
 
