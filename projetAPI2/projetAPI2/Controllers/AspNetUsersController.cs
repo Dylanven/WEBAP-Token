@@ -61,14 +61,19 @@ namespace projetAPI2.Controllers
 
         // PUT: api/AspNetUsers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAspNetUser(int id, AspNetUser aspNetUser)
+      /*  [HttpPut("{id}")]
+        public async Task<IActionResult> PutAspNetUser(NewUser newUser)
         {
             if (id != aspNetUser.Id)
             {
                 return BadRequest();
             }
-
+            CheckEmail checkEmail = new CheckEmail();
+            email = checkEmail.checkEmails(newUser.Email);
+            if (email == false)
+            {
+                return BadRequest("this email is not valid");
+            }
             _context.Entry(aspNetUser).State = EntityState.Modified;
 
             try
@@ -88,7 +93,7 @@ namespace projetAPI2.Controllers
             }
 
             return NoContent();
-        }
+        }*/
 
         // POST: api/AspNetUsers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -106,16 +111,13 @@ namespace projetAPI2.Controllers
             {
                 return Conflict("User already exists");
             }
-            string email = newUser.Email;
-            try
-            {
-                MailAddress mailAddress = new MailAddress(newUser.Email);
-                // The email address is valid
-            }
-            catch (FormatException)
+            CheckEmail checkEmail = new CheckEmail();
+            bool email = checkEmail.checkEmails(newUser.Email);
+            if (email == false)
             {
                 return BadRequest("this email is not valid");
             }
+           
             if (newUser.Password != newUser.ConfirmPassword)
             {
                 return BadRequest("Password and Confirm Password must be the same");
@@ -125,8 +127,6 @@ namespace projetAPI2.Controllers
             _context.AspNetUsers.Add(test);
 
             await _context.SaveChangesAsync();
-          
-            Debug.WriteLine("________________________________________" + '\n' + repsonse.ToString());
             return CreatedAtAction("GetAspNetUser", new { id = test.Id }, test);
 
         }
@@ -152,8 +152,12 @@ namespace projetAPI2.Controllers
                 }
                 
             }
+            if (user.LockoutEnabled == true)
+            {
+                return Unauthorized("your account is locked");
+            }
             // Check if password is correct
-            
+
             if (user.PasswordHash != HashPasword.hashPasword(log.Password))
             {
                 return Unauthorized("donnée incorecte");
