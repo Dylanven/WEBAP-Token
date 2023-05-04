@@ -101,6 +101,11 @@ namespace projetAPI2.Controllers
                 IdEvent = task.IdEvent
 
             };
+
+            if (_context.Tasks.Any(c => c.TasTitle == newTask.TasTitle))
+            {
+                return BadRequest("L'événement existe déjà");
+            }
             _context.Tasks.Add(newTask);
             await _context.SaveChangesAsync();
 

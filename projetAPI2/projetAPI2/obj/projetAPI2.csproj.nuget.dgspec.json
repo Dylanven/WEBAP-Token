@@ -1,29 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj": {}
+    "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj": {
+    "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
+        "projectUniqueName": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
         "projectName": "projetAPI2",
-<<<<<<< HEAD
         "projectPath": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
         "packagesPath": "C:\\Users\\adminlocal\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\adminlocal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "projectPath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
-        "packagesPath": "C:\\Users\\Dylven\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dylven\\source\\repos\\Token\\WEBAP-Token\\projetAPI2\\projetAPI2\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Dylven\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> master
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

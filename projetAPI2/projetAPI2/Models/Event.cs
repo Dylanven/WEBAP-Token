@@ -29,7 +29,7 @@ public partial class Event
 
     public virtual StatesEvent IdStatesEventNavigation { get; set; } = null!;
 
-    public virtual ICollection<Invitation> Invitations { get; set; } = new List<Invitation>();
+    public virtual ICollection<Invitation>? Invitations { get; set; } = new List<Invitation>();
 
     public virtual ICollection<Category> IdCategories { get; set; } = new List<Category>();
 }

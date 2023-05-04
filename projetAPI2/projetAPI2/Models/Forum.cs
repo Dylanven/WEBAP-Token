@@ -13,5 +13,5 @@ public partial class Forum
 
     public virtual Event IdEventNavigation { get; set; } = null!;
 
-    public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
+    public virtual ICollection<Post>? Posts { get; set; } = new List<Post>();
 }
