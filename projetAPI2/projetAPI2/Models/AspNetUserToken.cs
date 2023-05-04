@@ -5,7 +5,7 @@ namespace projetAPI2.Models;
 
 public partial class AspNetUserToken
 {
-    public string UserId { get; set; } = null!;
+    public int UserId { get; set; } = 0;
 
     public string LoginProvider { get; set; } = null!;
 

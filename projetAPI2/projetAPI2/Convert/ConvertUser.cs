@@ -14,7 +14,7 @@ namespace projetAPI2.Convert
 
             AspNetUser netUser = new AspNetUser
             {
-            Id = Guid.NewGuid().ToString(),
+               
             Email = user.Email,
                UserName = user.UserName,
                PasswordHash = HashPasword.hashPasword(user.Password),

@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using projetAPI2.Methode;
-
+using System.Net.Mail;
 
 namespace projetAPI2.Controllers
 {
@@ -61,14 +61,19 @@ namespace projetAPI2.Controllers
 
         // PUT: api/AspNetUsers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAspNetUser(string id, AspNetUser aspNetUser)
+      /*  [HttpPut("{id}")]
+        public async Task<IActionResult> PutAspNetUser(NewUser newUser)
         {
             if (id != aspNetUser.Id)
             {
                 return BadRequest();
             }
-
+            CheckEmail checkEmail = new CheckEmail();
+            email = checkEmail.checkEmails(newUser.Email);
+            if (email == false)
+            {
+                return BadRequest("this email is not valid");
+            }
             _context.Entry(aspNetUser).State = EntityState.Modified;
 
             try
@@ -88,7 +93,7 @@ namespace projetAPI2.Controllers
             }
 
             return NoContent();
-        }
+        }*/
 
         // POST: api/AspNetUsers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -100,19 +105,28 @@ namespace projetAPI2.Controllers
                 return Problem("Entity set 'PrototypeContext.AspNetUsers'  is null.");
             }
 
-            AspNetUser user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == newUser.UserName & u.Email == newUser.Email);
+            AspNetUser user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == newUser.UserName || u.Email == newUser.Email);
           
             if (user != null)
             {
-                return Conflict("Username already exists");
+                return Conflict("User already exists");
+            }
+            CheckEmail checkEmail = new CheckEmail();
+            bool email = checkEmail.checkEmails(newUser.Email);
+            if (email == false)
+            {
+                return BadRequest("this email is not valid");
             }
            
+            if (newUser.Password != newUser.ConfirmPassword)
+            {
+                return BadRequest("Password and Confirm Password must be the same");
+            }
+
             AspNetUser test = ConvertUser.ConvertToDTO(newUser);
             _context.AspNetUsers.Add(test);
 
             await _context.SaveChangesAsync();
-          
-            Debug.WriteLine("________________________________________" + '\n' + repsonse.ToString());
             return CreatedAtAction("GetAspNetUser", new { id = test.Id }, test);
 
         }
@@ -138,8 +152,12 @@ namespace projetAPI2.Controllers
                 }
                 
             }
+            if (user.LockoutEnabled == true)
+            {
+                return Unauthorized("your account is locked");
+            }
             // Check if password is correct
-            
+
             if (user.PasswordHash != HashPasword.hashPasword(log.Password))
             {
                 return Unauthorized("donnée incorecte");
@@ -171,7 +189,7 @@ namespace projetAPI2.Controllers
             return NoContent();
         }
 
-        private bool AspNetUserExists(string id)
+        private bool AspNetUserExists(int id)
         {
             return (_context.AspNetUsers?.Any(e => e.Id == id)).GetValueOrDefault();
         }

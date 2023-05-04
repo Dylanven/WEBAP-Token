@@ -1,9 +1,9 @@
 ﻿namespace projetAPI2.DTO
 {
-    public class Place
+    public class PlaceDTO
     {
         public string PlaAddress { get; set; } = null!;
 
-        public int IdCountry { get; set; }
+        public string CouName { get; set; } = null!;
     }
 }
