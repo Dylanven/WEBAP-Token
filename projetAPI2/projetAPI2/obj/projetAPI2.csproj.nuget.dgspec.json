@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
         "projectName": "projetAPI2",
         "projectPath": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
-        "packagesPath": "C:\\Users\\PS21VZD\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\adminlocal\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PS21VZD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adminlocal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
