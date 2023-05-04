@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using projetAPI2.Convert;
+using projetAPI2.DTO;
 using projetAPI2.Models;
 
 namespace projetAPI2.Controllers
@@ -83,16 +86,25 @@ namespace projetAPI2.Controllers
         // POST: api/Places
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Place>> PostPlace(Place place)
+        public async Task<ActionResult<Place>> PostPlace(PlaceDTO place)
         {
-          if (_context.Places == null)
-          {
-              return Problem("Entity set 'PrototypeContext.Places'  is null.");
-          }
-            _context.Places.Add(place);
+            if (_context.Places == null)
+            {
+                return Problem("Entity set 'PrototypeContext.Places'  is null.");
+            }
+            Country name = await _context.Countries.FirstOrDefaultAsync(c => c.CouName == place.CouName);
+            if (name == null)
+            {
+                return NotFound("Country not found.");
+            }
+            Debug.WriteLine("---------------------------------------Country found: " + name.CouName);
+            int idcountry = name.IdCountry;
+            Debug.WriteLine("---------------------------------------Country found: " + idcountry);
+            Place newplace = ConvertPlace.ConvertPlaces(place, idcountry);
+            _context.Places.Add(newplace);
             await _context.SaveChangesAsync();
+            return CreatedAtAction("GetPlace", new { id = newplace.IdPlace }, newplace);
 
-            return CreatedAtAction("GetPlace", new { id = place.IdPlace }, place);
         }
 
         // DELETE: api/Places/5
