@@ -15,7 +15,7 @@ namespace projetAPI2.Convert
           
 
 
-            AspNetUser test = new AspNetUser
+            AspNetUser netUser = new AspNetUser
             {
             Id = Guid.NewGuid().ToString(),
             Email = user.Email,
@@ -26,7 +26,7 @@ namespace projetAPI2.Convert
                 PhoneNumberConfirmed = false,
                 TwoFactorEnabled = false
             };
-            return test;
+            return netUser;
         }
     }
 }

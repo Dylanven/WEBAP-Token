@@ -19,7 +19,7 @@ namespace projetAPI2
                 return BadRequest("Invalid client request");
             }
 
-            if (model.UserName == "johndoe" && model.Password == "johndoe2410")
+            if (model.UserName == "string" && model.Password == "string")
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@2410"));
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);

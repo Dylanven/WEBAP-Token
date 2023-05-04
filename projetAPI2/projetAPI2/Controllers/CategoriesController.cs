@@ -97,20 +97,21 @@ namespace projetAPI2.Controllers
               return Problem("Entity set 'PrototypeContext.Categories'  is null.");
           }
 
-            Category cat = ConvertCategory.ConvertCategories(category);
-            var Name = await _context.Categories.FirstOrDefaultAsync(c => c.CatName == cat.CatName);
+            //Category cat = ConvertCategory.ConvertCategories(category);
+            var newCategory = new Category { CatName = category.CatName };
+            //var Name = await _context.Categories.FirstOrDefaultAsync(c => c.CatName == cat.CatName);
 
-            if (Name != null)
+            if (_context.Categories.Any(c => c.CatName == newCategory.CatName))
             {
                 return BadRequest("Category already exists");
             }
 
 
 
-            _context.Categories.Add(cat);
+            _context.Categories.Add(newCategory);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = cat.IdCategory }, cat);
+            return CreatedAtAction("GetCategory", new { id = newCategory.IdCategory }, newCategory);
         }
 
      
