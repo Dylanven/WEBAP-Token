@@ -11113,11 +11113,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PS21VZD\\source\\repos\\projetAPI2\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
+      "projectUniqueName": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
       "projectName": "projetAPI2",
-      "projectPath": "C:\\Users\\PS21VZD\\source\\repos\\projetAPI2\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
+      "projectPath": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
       "packagesPath": "C:\\Users\\PS21VZD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PS21VZD\\source\\repos\\projetAPI2\\projetAPI2\\projetAPI2\\obj\\",
+      "outputPath": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PS21VZD\\AppData\\Roaming\\NuGet\\NuGet.Config",

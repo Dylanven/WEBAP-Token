@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JuZQZPTSS/T1MW4Ez+SSWpFq0xeCMaQL1KZSnn/64GwNSfVOm5p6t3ybHQsdYx5GoSBR1w+EE/lBqRjD+2zP+Q==",
+  "dgSpecHash": "aE0yj9dR0Q1pltVpkDBmk0zrJmcNj/JalJvsgUnxB1tSimA5HA6i97TZp7ByzGTuRt/9grGr10sgTFZkcSRX1g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PS21VZD\\source\\repos\\projetAPI2\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
+  "projectFilePath": "C:\\Users\\PS21VZD\\API_projet\\WEBAP-Token\\projetAPI2\\projetAPI2\\projetAPI2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PS21VZD\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\PS21VZD\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
