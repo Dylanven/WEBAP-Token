@@ -5,7 +5,7 @@ namespace projetAPI2.Models;
 
 public partial class AspNetUser
 {
-    public string Id { get; set; } = null!;
+    public int Id { get; set; } = 0;
 
     public string? UserName { get; set; }
 

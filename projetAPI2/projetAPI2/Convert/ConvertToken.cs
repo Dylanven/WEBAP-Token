@@ -11,7 +11,7 @@ namespace projetAPI2
 
             AspNetUserToken test = new AspNetUserToken
             {
-                UserId = user.Id,
+                
                 LoginProvider = "TEST",
                 Name = "test",
                 Value = "Tamere",

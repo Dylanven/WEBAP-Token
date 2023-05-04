@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using projetAPI2.Methode;
-
+using System.Net.Mail;
 
 namespace projetAPI2.Controllers
 {
@@ -62,7 +62,7 @@ namespace projetAPI2.Controllers
         // PUT: api/AspNetUsers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAspNetUser(string id, AspNetUser aspNetUser)
+        public async Task<IActionResult> PutAspNetUser(int id, AspNetUser aspNetUser)
         {
             if (id != aspNetUser.Id)
             {
@@ -100,13 +100,27 @@ namespace projetAPI2.Controllers
                 return Problem("Entity set 'PrototypeContext.AspNetUsers'  is null.");
             }
 
-            AspNetUser user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == newUser.UserName & u.Email == newUser.Email);
+            AspNetUser user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.UserName == newUser.UserName || u.Email == newUser.Email);
           
             if (user != null)
             {
-                return Conflict("Username already exists");
+                return Conflict("User already exists");
             }
-           
+            string email = newUser.Email;
+            try
+            {
+                MailAddress mailAddress = new MailAddress(newUser.Email);
+                // The email address is valid
+            }
+            catch (FormatException)
+            {
+                return BadRequest("this email is not valid");
+            }
+            if (newUser.Password != newUser.ConfirmPassword)
+            {
+                return BadRequest("Password and Confirm Password must be the same");
+            }
+
             AspNetUser test = ConvertUser.ConvertToDTO(newUser);
             _context.AspNetUsers.Add(test);
 
@@ -171,7 +185,7 @@ namespace projetAPI2.Controllers
             return NoContent();
         }
 
-        private bool AspNetUserExists(string id)
+        private bool AspNetUserExists(int id)
         {
             return (_context.AspNetUsers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
